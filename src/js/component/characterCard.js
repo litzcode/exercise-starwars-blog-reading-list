@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import { Context } from "../store/appContext";
@@ -11,6 +11,7 @@ import img400x200 from "../../img/img400x200.png";
 
 export const CharacterCard = props => {
 	const { store, actions } = useContext(Context);
+	const [icon, setIcon] = useState("far fa-heart");
 
 	return (
 		<div className="card">
@@ -24,8 +25,13 @@ export const CharacterCard = props => {
 					<Link to={"/people/" + props.index}>
 						<button className="btn btn-outline-primary">Learn more!</button>
 					</Link>
-					<button className="btn btn-outline-warning" onClick={() => actions.addFavorite(props.character)}>
-						<i className="far fa-heart" />
+					<button
+						className="btn btn-outline-warning"
+						onClick={() => {
+							actions.addFavorite(props.character);
+							setIcon("fas fa-heart");
+						}}>
+						<i className={icon} />
 					</button>
 				</div>
 			</div>

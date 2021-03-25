@@ -22,16 +22,20 @@ export const Favorites = () => {
 			</a>
 
 			<div className="dropdown-menu">
-				{store.favorites.map((item, index) => {
-					return (
-						<a className="dropdown-item" key={index}>
-							{item}{" "}
-							<span onClick={() => actions.removeFavorite(index)}>
-								<i className="fas fa-trash-alt float-right" />
-							</span>
-						</a>
-					);
-				})}
+				{store.favorites.length == 0 ? (
+					<a className="dropdown-item text-center">(empty)</a>
+				) : (
+					store.favorites.map((item, index) => {
+						return (
+							<a className="dropdown-item" key={index}>
+								{item}{" "}
+								<span onClick={() => actions.removeFavorite(index)}>
+									<i className="fas fa-trash-alt float-right" />
+								</span>
+							</a>
+						);
+					})
+				)}
 			</div>
 		</div>
 	);

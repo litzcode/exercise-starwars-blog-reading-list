@@ -17,7 +17,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return resp.json();
 					})
 					.then(data => {
-						setStore({ people: data.results });
+						setStore({ people: data.results, loading: false });
 						console.log("People array: ", data.results);
 					})
 					.catch(error => console.error("GET people error: ", error));
@@ -33,7 +33,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return resp.json();
 					})
 					.then(data => {
-						setStore({ planets: data.results });
+						setStore({ planets: data.results, loading: false });
 						console.log("Planets array: ", data.results);
 					})
 					.catch(error => console.error("GET planets error: ", error));
@@ -60,20 +60,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
 			}
 		}
 	};
