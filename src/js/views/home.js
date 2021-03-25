@@ -1,13 +1,12 @@
 import React from "react";
 import "../../styles/home.scss";
 
-import { People } from "../component/people.js";
-import { Planets } from "../component/planets.js";
+import { CharacterList } from "../component/characterList.js";
+import { PlanetList } from "../component/planetList.js";
 
 export const Home = () => (
-	<div>
-		<People />
-
-		<Planets />
+	<div className="container">
+		<CharacterList />
+		<PlanetList />
 	</div>
 );

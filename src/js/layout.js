@@ -7,6 +7,7 @@ import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 
 import { SingleCharacter } from "./views/singleCharacter";
+import { SinglePlanet } from "./views/singlePlanet";
 
 import injectContext from "./store/appContext";
 
@@ -36,6 +37,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/people/:theid">
 							<SingleCharacter />
+						</Route>
+						<Route exact path="/planet/:theid">
+							<SinglePlanet />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

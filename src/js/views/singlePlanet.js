@@ -5,11 +5,11 @@ import { Context } from "../store/appContext";
 
 import img800x600 from "../../img/img800x600.png";
 
-export const SingleCharacter = props => {
+export const SinglePlanet = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 
-	let character = store.people[params.theid];
+	let planet = store.planets[params.theid];
 
 	return (
 		<div className="container text-center w-75">
@@ -19,7 +19,7 @@ export const SingleCharacter = props => {
 				</div>
 				<div className="col-md-6">
 					<div className="card-body">
-						<h5 className="card-title">{character.name}</h5>
+						<h5 className="card-title">{planet.name}</h5>
 						<p className="card-text">
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non nisi bibendum, egestas ex
 							at, rutrum lorem. Nunc purus arcu, finibus eu pulvinar nec, molestie eu libero. Mauris ut
@@ -34,33 +34,33 @@ export const SingleCharacter = props => {
 			<div className="row border-danger border-top p-3 text-danger">
 				<div className="col">
 					<p>Name</p>
-					<p>{character.name}</p>
+					<p>{planet.name}</p>
 				</div>
 				<div className="col">
-					<p>Birth Year</p>
-					<p>{character.birth_year}</p>
+					<p>Population</p>
+					<p>{planet.population}</p>
 				</div>
 				<div className="col">
-					<p>Gender</p>
-					<p>{character.gender}</p>
+					<p>Terrain</p>
+					<p>{planet.terrain}</p>
 				</div>
 				<div className="col">
-					<p>Height</p>
-					<p>{character.height}</p>
+					<p>Diameter</p>
+					<p>{planet.diameter}</p>
 				</div>
 				<div className="col">
-					<p>Skin Color</p>
-					<p>{character.skin_color}</p>
+					<p>Climate</p>
+					<p>{planet.climate}</p>
 				</div>
 				<div className="col">
-					<p>Eye Color</p>
-					<p>{character.eye_color}</p>
+					<p>Rotation Period</p>
+					<p>{planet.rotation_period}</p>
 				</div>
 			</div>
 		</div>
 	);
 };
 
-SingleCharacter.propTypes = {
+SinglePlanet.propTypes = {
 	match: PropTypes.object
 };

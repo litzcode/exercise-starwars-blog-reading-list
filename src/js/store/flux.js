@@ -3,7 +3,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			people: [],
 			planets: [],
-			favorites: []
+			favorites: [],
+			loading: true
 		},
 		actions: {
 			getPeople: () => {
@@ -35,14 +36,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ planets: data.results });
 						console.log("Planets array: ", data.results);
 					})
-					.catch(error => console.error("GET plabets error: ", error));
+					.catch(error => console.error("GET planets error: ", error));
 			},
 
-			addFavorite: () => {
-				setStore({ favorites: favorites.concat(people.name) });
+			addFavorite: people => {
+				const store = getStore();
+				setStore({ favorites: store.favorites.concat(people.name) });
+				console.log("Added favorites: ", store.favorites);
 			},
 
-			// Use getActions to call a function within a fuction
+			removeFavorite: index => {
+				const store = getStore();
+				store.favorites.splice(index, 1);
+				setStore({ favorites: store.favorites });
+				console.log("Removed favorites:", store.favorites);
+			},
+
+			// Use getActions to call a function within a function
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
