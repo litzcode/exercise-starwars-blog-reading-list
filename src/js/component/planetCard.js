@@ -12,6 +12,8 @@ import img400x200 from "../../img/img400x200.png";
 export const PlanetCard = props => {
 	const { store, actions } = useContext(Context);
 
+	let isFavorite = store.favorites.includes(props.planet.name);
+
 	return (
 		<div className="card">
 			<img src={img400x200} className="card-img-top" alt="..." style={{ width: "300px" }} />
@@ -24,7 +26,7 @@ export const PlanetCard = props => {
 						<button className="btn btn-outline-primary">Learn more!</button>
 					</Link>
 					<button className="btn btn-outline-warning" onClick={() => actions.addFavorite(props.planet)}>
-						<i className="far fa-heart" />
+						<i className={isFavorite ? "fas fa-heart" : "far fa-heart"} />
 					</button>
 				</div>
 			</div>

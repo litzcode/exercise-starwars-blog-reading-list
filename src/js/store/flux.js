@@ -41,7 +41,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			addFavorite: people => {
 				const store = getStore();
-				setStore({ favorites: store.favorites.concat(people.name) });
+				store.favorites.includes(people.name)
+					? setStore({ favorites: store.favorites })
+					: setStore({ favorites: store.favorites.concat(people.name) });
 				console.log("Added favorites: ", store.favorites);
 			},
 

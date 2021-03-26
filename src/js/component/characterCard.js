@@ -11,7 +11,8 @@ import img400x200 from "../../img/img400x200.png";
 
 export const CharacterCard = props => {
 	const { store, actions } = useContext(Context);
-	const [icon, setIcon] = useState("far fa-heart");
+
+	let isFavorite = store.favorites.includes(props.character.name);
 
 	return (
 		<div className="card">
@@ -29,9 +30,8 @@ export const CharacterCard = props => {
 						className="btn btn-outline-warning"
 						onClick={() => {
 							actions.addFavorite(props.character);
-							setIcon("fas fa-heart");
 						}}>
-						<i className={icon} />
+						<i className={isFavorite ? "fas fa-heart" : "far fa-heart"} />
 					</button>
 				</div>
 			</div>
