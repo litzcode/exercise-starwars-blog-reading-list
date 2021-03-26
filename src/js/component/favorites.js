@@ -31,14 +31,14 @@ export const Favorites = () => {
 						let planetId = store.planets.map(obj => obj.name).indexOf(item);
 
 						return (
-							<Link to={peopleId !== -1 ? "/people/" + peopleId : "/planet/" + planetId} key={index}>
-								<a className="dropdown-item" key={index}>
+							<a className="dropdown-item" key={index}>
+								<Link to={peopleId !== -1 ? "/people/" + peopleId : "/planet/" + planetId} key={index}>
 									{item}{" "}
-									<span onClick={() => actions.removeFavorite(index)}>
-										<i className="fas fa-trash-alt float-right" />
-									</span>
-								</a>
-							</Link>
+								</Link>
+								<span onClick={() => actions.removeFavorite(index)}>
+									<i className="fas fa-trash-alt float-right" />
+								</span>
+							</a>
 						);
 					})
 				)}
