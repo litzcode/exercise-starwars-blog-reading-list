@@ -26,13 +26,19 @@ export const Favorites = () => {
 					<a className="dropdown-item text-center">(empty)</a>
 				) : (
 					store.favorites.map((item, index) => {
+						let peopleId = store.people.map(obj => obj.name).indexOf(item);
+
+						let planetId = store.planets.map(obj => obj.name).indexOf(item);
+
 						return (
-							<a className="dropdown-item" key={index}>
-								{item}{" "}
-								<span onClick={() => actions.removeFavorite(index)}>
-									<i className="fas fa-trash-alt float-right" />
-								</span>
-							</a>
+							<Link to={peopleId !== -1 ? "/people/" + peopleId : "/planet/" + planetId} key={index}>
+								<a className="dropdown-item" key={index}>
+									{item}{" "}
+									<span onClick={() => actions.removeFavorite(index)}>
+										<i className="fas fa-trash-alt float-right" />
+									</span>
+								</a>
+							</Link>
 						);
 					})
 				)}
