@@ -9,7 +9,7 @@ export const Favorites = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="dropdown pr-5">
+		<div className="dropdown pr-5 ml-auto">
 			<a
 				className="btn btn-primary dropdown-toggle"
 				href="#"

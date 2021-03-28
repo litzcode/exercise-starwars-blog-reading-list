@@ -54,6 +54,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log("Removed favorites:", store.favorites);
 			},
 
+			handleOnSelectCharacter: item => {
+				console.log("Selected character on search", item);
+				setStore({ people: [item] });
+			},
+
+			handleOnFocusCharacter: () => {
+				console.log("Focused");
+				getActions().getPeople();
+			},
+
+			handleOnSelectPlanet: item => {
+				console.log("Selected planet on search", item);
+				setStore({ planets: [item] });
+			},
+
+			handleOnFocusPlanet: () => {
+				console.log("Focused");
+				getActions().getPlanets();
+			},
+
 			// Use getActions to call a function within a function
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");

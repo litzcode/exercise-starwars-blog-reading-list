@@ -9,7 +9,7 @@ export const FavoritesList = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div>
+		<div className="container-fluid">
 			<h3 className="text-danger">Favorites List</h3>
 			{store.favorites.length === 0 ? (
 				<p className="text-muted">No favorites selected</p>

@@ -57,6 +57,11 @@ export const SinglePlanet = props => {
 					<p>{planet.rotation_period}</p>
 				</div>
 			</div>
+			<div className="d-flex justify-content-start">
+				<Link to="/">
+					<div className="btn btn-outline-primary">Back to home</div>
+				</Link>
+			</div>
 		</div>
 	);
 };
